@@ -3,7 +3,7 @@ from pydub import AudioSegment
 
 print(">>> SCRIPT STARTED")
 
-os.chdir("Name of working directory")
+os.chdir("Put path to directory here")
 directoryToScan = os.getcwd()
 
 #get the list of all files and files that ends with -R1.wav
@@ -26,7 +26,9 @@ for fileNameR1 in fileListR1:
         if (fileNameAll.find(fileNameR1) == 0):
             print ("fileNameAll = " + fileNameAll)
             combined = combined + AudioSegment.from_file(fileNameAll, format="wav") + silence
-    combined.export(fileNameR1 + "_combined.wav")
+            combined.set_sample_width(2) #force bitrate to 16bits since pydub corrupts higher bitrates
+    
+    combined.export(fileNameR1 + "_combined.wav", format = "wav")
     print (fileNameR1 + " exported")
 
 print(">>> SCRIPT DONE!")
