@@ -3,8 +3,8 @@ import time
 
 print ("Script started!")
 
-pathWorkingDirectory = "C:/Users/petri/Desktop/PythonResults/"
-pathsAllRaw = unreal.EditorAssetLibrary.list_assets("/Game/Vanguard/Audio/")
+pathWorkingDirectory = "C:/Users/user_name/Desktop/PythonResults/"
+pathsAllRaw = unreal.EditorAssetLibrary.list_assets("/content_directory/sub_directory/Audio/")
 pathsAll = []
 pathsMSS = []
 pathsMSSEmptySubmixes = []
